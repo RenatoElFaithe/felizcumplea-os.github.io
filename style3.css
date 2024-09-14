@@ -1,0 +1,157 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fefefe;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    position: relative;
+    padding: 20px;
+    max-width: 600px;
+    margin: auto;
+}
+
+h1 {
+    color: #ff69b4;
+    margin-bottom: 10px;
+    font-size: 2.5em;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.message {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 20px;
+    animation: fadeIn 3s ease-in-out;
+}
+
+.birthday-image {
+    width: 300px;
+    height: auto;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    animation: zoomIn 2s ease-in-out;
+}
+
+.balloons, .hearts {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    pointer-events: none;
+}
+
+.balloons {
+    left: -120px;
+}
+
+.hearts {
+    right: -120px;
+}
+
+.balloon {
+    width: 60px;
+    height: 80px;
+    background-color: #ff69b4;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(-45deg);
+    position: relative;
+    margin-top: 20px;
+    animation: floatBalloon 8s infinite;
+}
+
+.balloon::before {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 50px;
+    background-color: #000;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.heart {
+    width: 40px;
+    height: 40px;
+    background-color: red;
+    position: relative;
+    margin: 10px 0;
+    animation: moveHeart 10s infinite;
+}
+
+.heart::before,
+.heart::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: red;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -20px;
+    left: 0;
+}
+
+.heart::after {
+    left: 20px;
+    top: 0;
+}
+
+@keyframes floatBalloon {
+    0% {
+        transform: translateY(0) rotate(-45deg);
+    }
+    50% {
+        transform: translateY(-100px) rotate(-45deg);
+    }
+    100% {
+        transform: translateY(0) rotate(-45deg);
+    }
+}
+
+@keyframes moveHeart {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-50px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
